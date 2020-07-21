@@ -1,6 +1,6 @@
 {
-  "name": "ludbot",
-  "version": "2.0.0",
+  "name": "slack-slash-shell",
+  "version": "1.0.0",
   "description": "slash commands that execute shell script",
   "main": "src/index.js",
   "author": "Dayvson Sales",
