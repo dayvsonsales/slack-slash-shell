@@ -7,7 +7,7 @@
             "response_type": "in_channel",
             "provider": {
                 "path": "echo",
-		"arguments": "test"
+		  		"arguments": "test"
             },
             "stdout": true,
             "stdout_text": "Everything ok",
@@ -18,10 +18,10 @@
             "name": "bar",
             "provider": {
                 "path": "echo", 
-		"arguments": "test 2"
+		   		"arguments": "test 2"
             },
             "stdout": false,
-            "stderr": false,
+            "stderr": false
         }
     ]
 }
