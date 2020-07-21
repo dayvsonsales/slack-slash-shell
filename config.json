@@ -1,0 +1,27 @@
+{
+    "version": "1.0.0",
+    "description": "Example",
+    "paths": [
+        {
+            "name": "foo",
+            "response_type": "in_channel",
+            "provider": {
+                "path": "echo",
+		"arguments": "test"
+            },
+            "stdout": true,
+            "stdout_text": "Everything ok",
+            "stderr": true,
+            "stderr_text": "Something went wrong"
+        },
+        {
+            "name": "bar",
+            "provider": {
+                "path": "echo", 
+		"arguments": "test 2"
+            },
+            "stdout": false,
+            "stderr": false,
+        }
+    ]
+}
