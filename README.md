@@ -1,6 +1,6 @@
-# Ludbot
+# slack-slash-shell 
 
-This is a simple bot that helps you to execute shell scripts via slash commands on Slack.
+This is a simple script that helps you to execute shell scripts via slash commands on Slack.
 
 ## How to use
 
