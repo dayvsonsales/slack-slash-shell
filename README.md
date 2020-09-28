@@ -4,7 +4,7 @@ This is a simple script that helps you to execute shell scripts via slash comman
 
 ## How to use
 
-Firstly, edit .env file and add your slack signing secret. Then you need to put your commands in `config.json`. This script just read the config file and creates the POST routes dynamically based on config attributes (see the example below). 
+Firstly, edit the `.env.example` file, add your slack signing secret and rename it to `.env`. Then you need to put your commands in `config.json`. This script just read the config file and creates the POST routes dynamically based on config attributes (see the example below). 
 
 Example:
 
