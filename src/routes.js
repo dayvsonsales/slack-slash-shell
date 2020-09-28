@@ -17,18 +17,26 @@ const PATH_FILE = process.env.CONFIG_FILE || './config.json';
 
     for (let i = 0; i < paths.length; i += 1) {
       const {
-        provider, name, stderr, stderr_text, stdout, stdout_text, response_type,
+        provider, name, stderr, stderr_text, stdout, stdout_text, ...slack_options
       } = paths[i];
 
-      routes.post(`/${encodeURI(name)}`, (_, res) => {
-        const result = shelljs.exec(`${provider.path} ${provider.arguments}`);
+      routes.get(`/${encodeURI(name)}`, (_, res) => {
+        const result = shelljs.exec(`${provider.path}1 ${provider.arguments}`);
 
-        const slackMessage = { response_type, attachments: [{ text: '' }] };
+        const attachments = [{ text: '' }];
 
-        if (result.code !== 0) {
+        if (slack_options.attachments) {
+          attachments.push(...slack_options.attachments);
+        }
+
+        const slackMessage = { ...slack_options, attachments };
+
+        if (stderr && result.code !== 0) {
           slackMessage.attachments[0].text = stderr ? `${stderr_text} \n\n ${result.stderr}` : '';
-        } else {
+        } else if (stdout && result.code === 0) {
           slackMessage.attachments[0].text = stdout ? `${stdout_text} \n\n ${result.stdout}` : '';
+        } else {
+          slackMessage.attachments.splice(0, 1);
         }
 
         return res.send(slackMessage);

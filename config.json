@@ -5,23 +5,29 @@
         {
             "name": "foo",
             "response_type": "in_channel",
+            "response_color": "red",
             "provider": {
                 "path": "echo",
-		"arguments": "test"
+		        "arguments": "test"
             },
-            "stdout": true,
+            "attachments": [
+                { "text": "Some attachment"},
+                { "text": "Other attachment"}
+            ],
+            "stdout": false,
             "stdout_text": "Everything ok",
             "stderr": true,
             "stderr_text": "Something went wrong"
         },
         {
             "name": "bar",
+            "response_color": "red",
             "provider": {
                 "path": "echo", 
-		"arguments": "test 2"
+		        "arguments": "test 2"
             },
             "stdout": false,
-            "stderr": false,
+            "stderr": false
         }
     ]
 }
